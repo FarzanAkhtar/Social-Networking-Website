@@ -1,0 +1,7 @@
+{% extends 'accounts/base.html' %}
+{% block body %}
+
+ {% for a in name.profiledetails_set.all %}
+     {{a.user}}
+  {% endfor %}
+{% endblock %}

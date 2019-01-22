@@ -1,0 +1,10 @@
+{% extends 'accounts/base.html' %}
+
+{% block body %}
+{% if user.is_authenticated %}
+<h1>This is homepage.</h1>
+   {% for a in name %}
+    <h3><a href="{% url 'accounts:profile-view' %}" >{{a.user}}</a></h3>
+    {% endfor %}
+{% endif %}
+{% endblock %}

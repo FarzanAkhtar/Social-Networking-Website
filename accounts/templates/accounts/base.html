@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mysite</title>
+    {% load staticfiles %}
+    <link type="text/css" rel="stylesheet" href="{% static 'accounts/style.css' %}" />
+</head>
+<body>
+  {% if user.is_authenticated %}
+    <ul>
+       <li><a class="active" href="{% url 'accounts:home'%}">Home</a></li>
+        <li><a href= "{% url 'accounts:profile-view' %}">Profile</a></li>
+         <li><a href= "{% url 'accounts:profile-edit' %}">Edit-profile</a></li>
+         <li><a href="{% url 'accounts:password-change' %}">Change-Password </a></li>
+        <li><a href="{% url 'accounts:logout'%}">Logout</a></li>
+    </ul>
+  {% else %}
+      <ul>
+         <li><a href="{% url 'accounts:login'%}">Login</a></li>
+         <li><a href="{% url 'accounts:register'%}">Register</a></li>
+      </ul>
+  {% endif %}
+{% block body%}
+{% endblock %}
+</body>
+</html>
